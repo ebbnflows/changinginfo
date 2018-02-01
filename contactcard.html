@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+
+ function random_color()
+          {
+             var rgb = ['a','b','c','d','e','f','0','1','2','3','4','5','6','7','8','9'];
+             color = '#'  //this is what we'll return!
+             for(var i = 0; i < 6; i++) 
+             {
+                x = Math.floor((Math.random()*16))
+                color += rgb[x]; 
+             }
+             return color;
+          }
+
+			function change(){
+				$(".change").click(function(){
+					$(".changing").show(function(){
+						$(".change").hide(function(){
+							$(".changing").click(function(){
+								$(".change").show(function(){
+									$(".changing").hide()
+								})
+							})
+						})
+
+					})
+				})
+			}
+
+
+		$(document).ready(function(){
+			$("button").click(function(){
+					var temp = $("#name").val();
+					var temp1 = $("#lastname").val();
+					var temp2 = $("#description").val();
+					
+				$(".card").append("<div class ='change'>"+temp+" "+temp1+ "</div>","<div class ='changing'>"+temp2+ "</div>");
+						change()
+
+			})
+
+
+
+
+
+
+
+		})
+	</script>
+	<style type="text/css">
+		.changing{
+			display: none;
+			background-color: yellow;
+		}
+		.change{
+			display: block;
+			background-color: yellow;
+		}
+		p{
+			display: inline-block;
+		}
+		input{
+			display: inline-block;
+			}
+		button{
+			display: block;
+		}
+		
+		
+		.nice{
+			width: 100px;
+			height:100px;
+			display: block;
+		}
+		.lol{
+			display: block;
+		}
+		.card{
+			display: block;
+
+		}
+
+	</style>
+</head>
+<body>	
+			<div>
+			<p>First Name</p><input id="name" type="text" value="name" placeholder="NameHere" >
+			<p>Last Name</p><input id="lastname" type="text" value="name" placeholder="LastnameHere" >
+			<p class="lol">Description</p><input id="description" class="nice" type="text"  value="name" placeholder="describe yourself" >
+			<button type="submit">Add User</button>
+		</div>
+		<div class="card">
+		</div>
+</body>
+</html>
